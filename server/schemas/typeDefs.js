@@ -24,7 +24,10 @@ type Query {
     book(_id: ID): [Book]
 }
 
-
+type Mutation {
+    searchBook:(title: String!, description: String!, author: String, bookId: String!): Book
+    
+}
 `;
 
 module.exports = typeDefs;
