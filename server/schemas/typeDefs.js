@@ -19,6 +19,11 @@ type Book {
     title: String!
 }
 
+type Query {
+    user: [User]
+    book(_id: ID): [Book]
+}
+
 
 `;
 
