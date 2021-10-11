@@ -20,6 +20,7 @@ type Book {
 }
 
 type Query {
+    me: [User]
     user: [User]
     book(_id: ID): [Book]
 }

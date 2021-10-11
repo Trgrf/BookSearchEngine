@@ -1,15 +1,12 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Book } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        user: async () => {
-            return User.find({});
-        },
-        book: async (parent, { _id }) => {
-            const params = _id ? { _id } : {};
-            return Book.find(params);
-        },
+        me: async (parent, args, context) => {
+            
+        }
     },
     Mutation: {
         searchBook: async (parent, args) => {
