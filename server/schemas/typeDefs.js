@@ -21,13 +21,13 @@ type Book {
 
 type Query {
     me: [User]
-    user: [User]
-    book(_id: ID): [Book]
 }
 
 type Mutation {
-    searchBook:(title: String!, description: String!, author: String, bookId: String!): Book
-    
+    addUser:
+    login:
+    saveBook:
+    deleteBook:
 }
 `;
 
