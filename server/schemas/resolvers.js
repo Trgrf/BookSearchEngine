@@ -35,9 +35,9 @@ const resolvers = {
             res.json({ token, user });
         },
 
-        saveBook: async (parent, args, context) => {
+        saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
-
+                
             }
         },
 
