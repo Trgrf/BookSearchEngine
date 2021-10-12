@@ -45,10 +45,18 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        deleteBook: async (parent, args, context) => {
+        deleteBook: async (parent, { bookId }, context) => {
             if (context.user) {
+                const book = await Book.findOneAndDelete({
+                    _id: bookId
+                });
 
-                return;
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { book: book.bookId } }
+                  );
+
+                return book;
             }
             throw new AuthenticationError('You need to be logged in!');
         }
