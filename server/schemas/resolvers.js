@@ -34,17 +34,23 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect Information!');
             }
             const token = signToken(user);
-            res.json({ token, user });
+            return { token, user };
         },
 
         saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
 
+                return;
             }
+            throw new AuthenticationError('You need to be logged in!');
         },
 
         deleteBook: async (parent, args, context) => {
+            if (context.user) {
 
+                return;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 };
