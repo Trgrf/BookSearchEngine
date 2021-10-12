@@ -34,13 +34,13 @@ input BookInput {
 }
 
 type Query {
-    me: [User]
+    me: User
 }
 
 type Mutation {
-    addUser:(username: String!, email: String!, password: String!): Auth
     login:(email: String!, password: String!): Auth
-    saveBook:($description: String!)
+    addUser:(username: String!, email: String!, password: String!): Auth
+    saveBook:()
     deleteBook:()
 }
 `;
