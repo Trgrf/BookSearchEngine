@@ -39,8 +39,15 @@ const resolvers = {
 
         saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
+                const book = await Book.create({
+                    bookData
+                })
 
-                return;
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { book: book.bookId } }
+                );
+                return book;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
