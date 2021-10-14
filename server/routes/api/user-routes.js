@@ -11,12 +11,19 @@ const {
 const { authMiddleware } = require('../../utils/auth');
 
 // put authMiddleware anywhere we need to send a token for verification of user
-router.route('/').post(createUser).put(authMiddleware, saveBook);
+// url endpint: /api/users
+router.route('/')
+  .post(createUser)
+  .put(authMiddleware, saveBook);
 
-router.route('/login').post(login);
+router.route('/login')
+  .post(login);
 
-router.route('/me').get(authMiddleware, getSingleUser);
+  // url endpoint: /api/users/me
+router.route('/me')
+  .get(authMiddleware, getSingleUser);
 
-router.route('/books/:bookId').delete(authMiddleware, deleteBook);
+router.route('/books/:bookId')
+  .delete(authMiddleware, deleteBook);
 
 module.exports = router;
