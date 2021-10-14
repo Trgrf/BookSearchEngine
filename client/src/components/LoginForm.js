@@ -51,11 +51,12 @@ const LoginForm = () => {
       // console.log(user);
       // Auth.login(token);
 
-
+      console.log("handleFormSubmit: data: ", data)
+      Auth.login(data.login.token)
 
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      // setShowAlert(true);
     }
 
     setUserFormData({
