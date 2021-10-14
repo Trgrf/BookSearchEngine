@@ -45,7 +45,7 @@ const LoginForm = () => {
       // }
       const { data } = await login({
         variables: { ...userFormData }
-      })
+      });
 
       // const { token, user } = await response.json();
       // console.log(user);
