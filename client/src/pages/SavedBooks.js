@@ -32,9 +32,7 @@ const SavedBooks = () => {
         //   throw new Error('something went wrong!');
         // }
 
-        const { data } = await queryMe({
-          variables: {  }
-        });
+        const { data } = await queryMe();
 
         const user = await response.json();
         setUserData(user);
@@ -61,7 +59,7 @@ const SavedBooks = () => {
       // }
 
       const { data } = await removeBook({
-        variables: { }
+        variables: { bookId : { bookId }}
       });
 
       const updatedUser = await response.json();
