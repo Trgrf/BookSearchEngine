@@ -13,7 +13,6 @@ query me {
       description
       title
       link
-      }
     }
   }
 }
